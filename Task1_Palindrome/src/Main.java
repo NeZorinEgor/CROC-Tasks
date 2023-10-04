@@ -7,9 +7,18 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         String userInput = sc.nextLine();
         System.out.println(isPalindrome(userInput) ? "YES" : "NO");
+        //TODO: Избавиться от тернарного выражения, добавить работу независимо от пробелов и знаков
     }
+
+    /**
+     * Проверяет, является ли введенная строка палиндромом.
+     * @param userInput Строка для проверки на палиндром.
+     * @return true, если строка является палиндромом, в противном случае - false.
+     * @author Егор Зорин
+     */
+
     private static boolean isPalindrome(String userInput){
-        //
+        // Обработка оставшихся символов, когда остается либо 1 символ, либо ни одного.
         if (userInput.length() == 1 || userInput.length() == 0){
             return true;
         }
