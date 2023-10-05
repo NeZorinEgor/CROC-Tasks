@@ -1,22 +1,24 @@
 import java.util.Scanner;
-//Палиндром — число, буквосочетание, слово или текст, одинаково читающееся в обоих направлениях.
+//Задача - написать детектор палиндрома
 
 public class Main {
-    public static void main(String[] args){
-        //Считываем пользовательский ввод и записываем его в переменную `userInput`.
-        Scanner sc = new Scanner(System.in);
-        String userInput = sc.nextLine();
-        System.out.println(isPalindrome(userInput) ? "YES" : "NO");
-        //TODO: Избавиться от тернарного выражения, добавить работу независимо от пробелов и знаков
-    }
-
     /**
-     * Проверяет, является ли введенная строка палиндромом.
-     * @param userInput Строка для проверки на палиндром.
+     * isPalindrome проверяет, является ли введенная строка палиндромом.
+     * @param userInput - строка для проверки на палиндром.
+     * Из строки userInput удаляются пробелы и регистры сводятся к нижниму уровню.
      * @return true, если строка является палиндромом, в противном случае - false.
      * @author Егор Зорин
      */
+    public static void main(String[] args){
+        //Считываем пользовательский ввод и записываем его в переменную `userInput`.
+        Scanner sc = new Scanner(System.in); //Инициализируем сканер
+        String userInput = sc.nextLine().toLowerCase().replaceAll("\\s+","");
+        // to lower case - символоs к одному регистру
+        // replaceAll("\\s+","") - удалениt всех пробелов
 
+        System.out.println(isPalindrome(userInput) ? "YES" : "NO");
+        //TODO: Избавиться от тернарного выражения
+    }
     private static boolean isPalindrome(String userInput){
         // Обработка оставшихся символов, когда остается либо 1 символ, либо ни одного.
         if (userInput.length() == 1 || userInput.length() == 0){
