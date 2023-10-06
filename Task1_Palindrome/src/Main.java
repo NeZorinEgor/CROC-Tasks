@@ -1,27 +1,32 @@
 import java.util.Scanner;
-//Задача - написать детектор палиндрома
-
+/**
+ * Программа для определения, является ли введенная строка палиндромом.
+ * @author: Егор Зорин
+ */
 public class Main {
     /**
-     * isPalindrome проверяет, является ли введенная строка палиндромом.
-     * @param userInput - строка для проверки на палиндром.
-     * Из строки userInput удаляются пробелы и регистры сводятся к нижниму уровню.
-     * @return true, если строка является палиндромом, в противном случае - false.
-     * @author Егор Зорин
+     * Инициализируем сканер, записываем в userInput
+     * Из строки userInput удаляем пробелы и регистры сводим к нижниму уровню ->
+     * передаем в isPalindrome
      */
     public static void main(String[] args){
         //Считываем пользовательский ввод и записываем его в переменную `userInput`.
-        Scanner sc = new Scanner(System.in); //Инициализируем сканер
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Ввод данных: ");
         String userInput = sc.nextLine().toLowerCase().replaceAll("\\s+","");
-        // to lower case - символоs к одному регистру
+        // toLowerCase - символоs к одному регистру
         // replaceAll("\\s+","") - удалениt всех пробелов
 
-        System.out.println(isPalindrome(userInput) ? "YES" : "NO");
-        //TODO: Избавиться от тернарного выражения
+        System.out.println(isPalindrome(userInput));
     }
+    /**
+     * isPalindrome проверяет, является ли введенная строка палиндромом.
+     * @param userInput - строка для проверки на палиндром.
+     * @return true, если строка является палиндромом, в противном случае - false.
+     */
     private static boolean isPalindrome(String userInput){
         // Обработка оставшихся символов, когда остается либо 1 символ, либо ни одного.
-        if (userInput.length() == 1 || userInput.length() == 0){
+        if (userInput.length() == 1 || userInput.isEmpty()){
             return true;
         }
         // Рекурсивная обработка. Если первый и последний сомвол совпадают - отрезаем их и продолжаем.
@@ -30,5 +35,4 @@ public class Main {
         }
         return false;
     }
-
 }
