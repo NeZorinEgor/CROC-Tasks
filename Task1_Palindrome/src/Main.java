@@ -13,9 +13,10 @@ public class Main {
         //Считываем пользовательский ввод и записываем его в переменную `userInput`.
         Scanner sc = new Scanner(System.in);
         System.out.print("Ввод данных: ");
-        String userInput = sc.nextLine().toLowerCase().replaceAll("\\s+","");
+        String userInput = sc.nextLine().toLowerCase().replaceAll("[\\pP\\s]","");
+
         // toLowerCase - символоs к одному регистру
-        // replaceAll("\\s+","") - удалениt всех пробелов
+        // replaceAll("[\pP\s]","") - удаление всех пробелов и знаков припинания
 
         System.out.println(isPalindrome(userInput));
     }
