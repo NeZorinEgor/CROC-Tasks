@@ -1,6 +1,8 @@
 package Songs;
 
+
 public class Song {
+    //Поля
     private String groupName;
     private String songTitle;
     //Конструктор
