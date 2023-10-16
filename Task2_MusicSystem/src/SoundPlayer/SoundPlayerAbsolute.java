@@ -2,7 +2,7 @@ package SoundPlayer;
 
 import Songs.Song;
 
-public class SoundPlayer {
+public class SoundPlayerAbsolute {
     protected String suportMediaType;
 
     public String getSuportMediaType(){
