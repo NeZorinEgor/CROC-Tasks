@@ -1,8 +1,9 @@
 package SoundPlayer;
 
+import Contracts.PlaySound;
 import Songs.*;
 
-public class UNIVERSALPlayer extends SoundPlayerAbsolute{
+public class UNIVERSALPlayer extends SoundPlayerAbsolute implements PlaySound {
     public UNIVERSALPlayer(){
         this.suportMediaType = "UNIVERSAL";
     }

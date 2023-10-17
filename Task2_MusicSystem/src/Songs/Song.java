@@ -1,14 +1,15 @@
 package Songs;
 
 //import Contracts.SongsGetter;
-import SoundMedia.*;
+import SoundMedia.SoundMediaAbsolute;
 
 
-public class Song  extends SoundMediaAbsolute{ //implements SongsGetter
+
+public class Song  extends SoundMediaAbsolute{
     //Поля
     private String groupName;
     private String songTitle;
-    private SoundMediaAbsolute mediaType;
+    private SoundMediaAbsolute mediaType; //Поле для хранения типа, на котором корректно проигрывается
 
     //Конструктор
     public Song(String groupName, String songTitle, SoundMediaAbsolute mediaType){
@@ -20,15 +21,20 @@ public class Song  extends SoundMediaAbsolute{ //implements SongsGetter
         this.mediaType = mediaType;
     }
 
-    //Гетеры понадобятся для домонстрации работы
-    public SoundMediaAbsolute getMediaType(){
-        return this.mediaType;
+    /**
+     * Для корректного вывода типа через строку, а не получая по итогу ссылку
+     * @return mediaType.getMediaTyper()
+     */
+    public String getMediaType(){
+        return mediaType.getMediaTyper();
     }
 
+    //Для вывода названия группы
     public String getGroupName(){
         return this.groupName;
     }
 
+    //Для вывода названия песни
     public String getSongTitle(){
         return this.songTitle;
     }
