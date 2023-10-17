@@ -1,8 +1,10 @@
 package Songs;
 
+//import Contracts.SongsGetter;
 import SoundMedia.*;
 
-public class Song extends SoundMediaAbsolute{
+
+public class Song  extends SoundMediaAbsolute { //implements SongsGetter
     //Поля
     private String groupName;
     private String songTitle;
@@ -20,7 +22,7 @@ public class Song extends SoundMediaAbsolute{
 
 
     public SoundMediaAbsolute getMediaType(){
-        return mediaType;
+        return this.mediaType;
     }
 
     public String getGroupName(){
