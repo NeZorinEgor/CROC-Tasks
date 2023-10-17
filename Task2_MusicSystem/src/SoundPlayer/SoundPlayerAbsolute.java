@@ -3,6 +3,9 @@ package SoundPlayer;
 import Songs.*;
 import Contracts.*;
 
+/**
+ * Класс проигрывателей, от которого будут наследоваться все отсвльные проигрыватели, определяющий у них поддерживаемый тип и метод проигрывания музыки
+ */
 public class SoundPlayerAbsolute implements PlaySound {
     public String suportMediaType;
 
