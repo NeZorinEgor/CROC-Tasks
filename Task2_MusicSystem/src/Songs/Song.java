@@ -4,7 +4,7 @@ package Songs;
 import SoundMedia.*;
 
 
-public class Song  extends SoundMediaAbsolute { //implements SongsGetter
+public class Song  extends SoundMediaAbsolute{ //implements SongsGetter
     //Поля
     private String groupName;
     private String songTitle;
@@ -20,7 +20,7 @@ public class Song  extends SoundMediaAbsolute { //implements SongsGetter
         this.mediaType = mediaType;
     }
 
-
+    //Гетеры понадобятся для домонстрации работы
     public SoundMediaAbsolute getMediaType(){
         return this.mediaType;
     }

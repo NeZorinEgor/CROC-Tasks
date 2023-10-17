@@ -14,7 +14,7 @@ public class SoundPlayerAbsolute implements PlaySound {
         if ((song.getMediaType().mediaType).equals(((suportMediaType)))){
             System.out.println(song.getGroupName() + " - " + song.getSongTitle() + " on: " + getSuportMediaType());
         } else {
-            System.out.println("Musical type ERROR! Check MEDIA TYPE");
+            System.out.println("Musical type ERROR! Check M-EDIA TYPE");
         }
     }
 
