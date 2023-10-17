@@ -1,10 +1,24 @@
-import Songs.Song;
+import Songs.*;
+import SoundMedia.*;
+import SoundPlayer.CDPlaer;
+import SoundPlayer.FlashPlayer;
+import SoundPlayer.VenilPlayer;
 
 public class Main {
     public static void main(String[] args){
-        Song testSong = new Song("Земфира", "Хочешь?");
-        testSong.aboutSoung();
+        // Создаем экземпляры песен
+        Song testSong = new Song("Земфира", "Хочешь?", new Venil());
+        Song testSong2 = new Song("Земфира", "Кто?", new Flash());
+        Song testSong3 = new Song("Земфира", "ИСКАЛА", new CD());
+        // Создаем проигрыватели музыки
+        VenilPlayer testVenil = new VenilPlayer();
+        FlashPlayer testFlash = new FlashPlayer();
+        CDPlaer testCD = new CDPlaer();
 
+        testVenil.playSong(testSong);
+        testFlash.playSong(testSong2);
+        testCD.playSong(testSong3);
+        //TODO: Универсальный плеер
     }
 }
 

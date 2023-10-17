@@ -1,16 +1,20 @@
 package SoundPlayer;
 
-import Songs.Song;
+import Songs.*;
 
-public class SoundPlayerAbsolute {
-    protected String suportMediaType;
+public class SoundPlayerAbsolute  {
+    public String suportMediaType;
 
     public String getSuportMediaType(){
         return suportMediaType;
     }
 
     public void playSong(Song song){
-        //ToDO: реализовать этого монстра
+        if ((song.getMediaType().mediaType).equals(suportMediaType)){
+            System.out.println(song.getGroupName() + " - " + song.getSongTitle() + " on: " + getSuportMediaType());
+        } else {
+            System.out.println("Musical type ERROR! Check media_type");
+        }
     }
 
 }

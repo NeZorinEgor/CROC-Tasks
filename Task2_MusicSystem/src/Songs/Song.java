@@ -1,36 +1,34 @@
 package Songs;
 
+import SoundMedia.*;
 
-public class Song {
+public class Song extends SoundMediaAbsolute{
     //Поля
     private String groupName;
     private String songTitle;
+    private SoundMediaAbsolute mediaType;
+
     //Конструктор
-    public Song(String groupName, String songTitle){
+    public Song(String groupName, String songTitle, SoundMediaAbsolute mediaType){
         if (groupName.isEmpty() || songTitle.isEmpty()) {
             throw new IllegalArgumentException("Group name and song title must not be empty.");
         }
         this.groupName = groupName;
         this.songTitle =songTitle;
-    }
-    // сеттер для поля groupName
-    public void setGroupName(String groupName){
-        if (groupName.isEmpty()){
-            System.out.println("Enetr correct GROUP NAME!");
-        } else {
-            this.groupName = groupName;
-        }
-    }
-    // сеттер для поля songTitle
-    public void setSongTitle(String songTitle){
-        if (songTitle.isEmpty()){
-            System.out.println("Enter correct SONG NAME!");
-        } else {
-            this.songTitle = songTitle;
-        }
+        this.mediaType = mediaType;
     }
 
-    public void aboutSoung(){
-        System.out.println("Group name: " + groupName + " Song title: " + songTitle);
+
+    public SoundMediaAbsolute getMediaType(){
+        return mediaType;
     }
+
+    public String getGroupName(){
+        return this.groupName;
+    }
+
+    public String getSongTitle(){
+        return this.songTitle;
+    }
+
 }
