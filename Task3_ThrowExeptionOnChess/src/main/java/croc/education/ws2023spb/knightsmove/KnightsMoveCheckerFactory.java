@@ -38,8 +38,8 @@ public final class KnightsMoveCheckerFactory implements KnightsMoveChecker{
             int deltaY = Math.abs(next.y() - current.y());
 
             // Ход коня должен иметь 2 клетки в одном направлении и 1 клетку в другом направлении
-            if (!((deltaX == 1 && deltaY == 2) || (deltaX == 2 && deltaY == 1))) {
-                throw new IllegalMoveException("Недопустимый ход коня из " + current + " в " + next);
+            if (!((deltaX == 1 && deltaY == 2) || (deltaX == 2 && deltaY == 1) )) {
+                throw new IllegalMoveException("конь так не ходит: " + current + " -> " + next);
             }
         }
     }

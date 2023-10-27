@@ -30,13 +30,16 @@ public final class ChessPositionParser implements ChessPosition{
      */
     public static ChessPosition parse(final String position) {
         String convert = position.toLowerCase();
+        if (position.length() != 2) {
+            throw new IllegalArgumentException("Неверный формат ввода.");
+        }
+
         char localX = convert.charAt(0);
         char localY = convert.charAt(1);
 
         if (localX > 'h' || localX < 'a' || localY > '8' || localY < '1') {
             throw new IllegalArgumentException("Введены неверные координаты.");
         }
-
         int x = localX - 'a';
         int y = localY - '1';
         return new ChessPositionParser(x, y);
@@ -57,5 +60,4 @@ public final class ChessPositionParser implements ChessPosition{
         char yChar = (char)('1' + yCoord);
         return String.valueOf(xChar) + String.valueOf(yChar);
     }
-
 }
