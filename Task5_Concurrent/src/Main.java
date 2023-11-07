@@ -1,3 +1,6 @@
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.function.Supplier;
 
 /**
@@ -11,11 +14,56 @@ public class Main {
      * @param args
      *          стартовые аргументы
      */
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        var matrix = MatrixExample.E;
+        var matrix = MatrixExample.D;
+        ExecutorService executor = Executors.newFixedThreadPool(5); // Создаем пул из 5 потоков
 
-        printResult("detOneThread", matrix, () -> detOneThread(matrix.getMatrix()));
+        try {
+            printResult("detMultiThread", matrix, () -> detMultiThread(matrix.getMatrix(), executor));
+            printResult("detOneThread", matrix, () -> detOneThread(matrix.getMatrix()));
+        } finally {
+            executor.shutdown(); // Завершаем пул потоков после использования
+        }
+
+
+
+    }
+
+    /**
+     * Рекурсивный расчет определителя матрицы методом разложения по строке в нескольких потоках.
+     *
+     * @param a
+     *          матрица
+     * @param executor
+     *          пул потоков для параллельных вычислений
+     * @return определитель матрицы
+     */
+    private static long detMultiThread(long[][] a, ExecutorService executor) {
+        if (a.length == 1) {
+            return a[0][0];
+        }
+
+        var result = 0L;
+        Future<Long>[] subResults = new Future[a.length];
+
+        for (var i = 0; i < a.length; i++) {
+            final int row = i;
+            subResults[i] = executor.submit(() -> {
+                var sign = (row % 2 == 0 ? 1 : -1);
+                return sign * a[row][0] * detOneThread(minor(a, row));
+            });
+        }
+
+        for (var i = 0; i < a.length; i++) {
+            try {
+                result += subResults[i].get(); // Получаем результат из подзадач и суммируем
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return result;
     }
 
     /**
