@@ -1,34 +1,44 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Main implements BlacklistFilter{
     public static void main(String[] args) {
-        List<String> comments = new ArrayList<>();
-        comments.add("Слово 1");
-        comments.add("Слово 2");
-        comments.add("Слово 3");
-        comments.add("Слово 4");
+        /**
+         * Создаем список комментариев
+         */
+        List<String> comments = new ArrayList<>(List.of("Словasdо", "Слово", "Не слово", "Слово", "Слово"));
 
-        Set<String> blacList = new HashSet<>();
-        blacList.add("Слово 1");
+        /**
+         * Создаем черный список щапреток.
+         */
+        Set<String> blackList = new HashSet<>();
+        blackList.add("Слово");
+        blackList.add("Не слово");
 
 
         BlacklistFilter example = new Main();
-        example.filterComments(comments, blacList);
+        example.filterComments(comments, blackList);
     }
+
+    /**
+     * @param blackList
+     * @param comments
+     * Перебираем список comments в обратном порядке и убираем элементы из blackList
+     */
 
     @Override
     public void filterComments(List<String> comments, Set<String> blackList) {
         int startSize = comments.size();
-        for (int i = 0; i < comments.size(); i ++){
-            if (comments.get(i).equals("")){
-                comments.remove(i);
+        System.out.println(comments);
+
+        Iterator<String> iterator = comments.iterator();
+        while (iterator.hasNext()) {
+            String comment = iterator.next();
+            if (blackList.contains(comment)) {
+                iterator.remove();
             }
         }
         System.out.println(comments);
-        System.out.println("новая длинна: " + comments.size());
-        System.out.println("удаленно элементов: " + (startSize - comments.size()));
+        System.out.println("удалено элементов: " + (startSize - comments.size()));
     }
+
 }
