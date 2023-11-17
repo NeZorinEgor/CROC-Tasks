@@ -28,7 +28,7 @@ public class Main implements BlacklistFilter{
     @Override
     public void filterComments(List<String> comments, Set<String> blackList) {
         int startSize = comments.size();
-        System.out.println(comments);
+        System.out.println("Input list -> " + comments);
 
         Iterator<String> iterator = comments.iterator();
         while (iterator.hasNext()) {
@@ -37,7 +37,7 @@ public class Main implements BlacklistFilter{
                 iterator.remove();
             }
         }
-        System.out.println(comments);
+        System.out.println("Output list -> " + comments);
         System.out.println("удалено элементов: " + (startSize - comments.size()));
     }
 

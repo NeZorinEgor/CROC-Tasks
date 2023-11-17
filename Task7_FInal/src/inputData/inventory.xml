@@ -1,0 +1,15 @@
+<!-- Файл с данными по наличию товаров у продавцов -->
+<inventory>
+    <item>
+        <sellerID>1</sellerID>
+        <productID>1</productID>
+        <price>10.99</price>
+        <quantity>50</quantity>
+    </item>
+    <item>
+        <sellerID>2</sellerID>
+        <productID>2</productID>
+        <price>19.99</price>
+        <quantity>30</quantity>
+    </item>
+</inventory>
