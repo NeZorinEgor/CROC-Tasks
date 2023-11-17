@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Файл с продажами -->
+<root>
+    <sales>
+        <sale>
+            <saleID>1</saleID>
+            <sellerID>1</sellerID>
+            <productID>1</productID>
+            <quantity>10</quantity>
+            <saleDate>2023-11-17</saleDate>
+        </sale>
+        <sale>
+            <saleID>2</saleID>
+            <sellerID>2</sellerID>
+            <productID>2</productID>
+            <quantity>5</quantity>
+            <saleDate>2023-11-18</saleDate>
+        </sale>
+    </sales>
+</root>

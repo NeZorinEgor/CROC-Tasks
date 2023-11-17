@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Файл с данными по наличию товаров у продавцов -->
+<root>
+    <inventory>
+        <item>
+            <sellerID>1</sellerID>
+            <productID>1</productID>
+            <price>10.99</price>
+            <quantity>50</quantity>
+        </item>
+        <item>
+            <sellerID>2</sellerID>
+            <productID>2</productID>
+            <price>19.99</price>
+            <quantity>30</quantity>
+        </item>
+    </inventory>
+</root>
