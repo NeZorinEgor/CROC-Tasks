@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Файл с товарами -->
 <root>
     <products>
         <product>
@@ -11,4 +10,4 @@
             <productName>Товар 2</productName>
         </product>
     </products>
-</root>
+</root><!-- Файл с товарами -->

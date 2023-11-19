@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Файл с продажами -->
 <root>
     <sales>
         <sale>
@@ -9,6 +8,7 @@
             <quantity>10</quantity>
             <saleDate>2023-11-17</saleDate>
         </sale>
+
         <sale>
             <saleID>2</saleID>
             <sellerID>2</sellerID>
@@ -16,5 +16,30 @@
             <quantity>5</quantity>
             <saleDate>2023-11-18</saleDate>
         </sale>
+
+        <sale>
+            <saleID>3</saleID>
+            <sellerID>2</sellerID>
+            <productID>2</productID>
+            <quantity>5</quantity>
+            <saleDate>2023-11-19</saleDate>
+        </sale>
+
+        <sale>
+            <saleID>4</saleID>
+            <sellerID>2</sellerID>
+            <productID>2</productID>
+            <quantity>5</quantity>
+            <saleDate>2023-11-20</saleDate>
+        </sale>
+
+        <sale>
+            <saleID>5</saleID>
+            <sellerID>2</sellerID>
+            <productID>2</productID>
+            <quantity>5</quantity>
+            <saleDate>2023-11-21</saleDate>
+        </sale>
+
     </sales>
-</root>
+</root><!-- Файл с продажами -->

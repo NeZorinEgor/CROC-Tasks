@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Файл с данными по наличию товаров у продавцов -->
 <root>
     <inventory>
         <item>
@@ -15,4 +14,4 @@
             <quantity>30</quantity>
         </item>
     </inventory>
-</root>
+</root><!-- Файл с данными по наличию товаров у продавцов -->

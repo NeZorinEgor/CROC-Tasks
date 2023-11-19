@@ -1,23 +1,22 @@
 package Model;
 
-
 import java.util.List;
 
-public class Root {
-    private List<Sellers> sellers;
+public class Root{
+    private List<Sales> sales;
 
-    public Root(List<Sellers> sellers) {
-        this.sellers = sellers;
+    public List<Sales> getSales() {
+        return sales;
     }
 
-    public List<Sellers> getSellers() {
-        return sellers;
+    public void setSales(List<Sales> sales) {
+        this.sales = sales;
     }
 
     @Override
     public String toString() {
         return "Root{" +
-                "sellers=" + sellers +
+                "sales=" + sales +
                 '}';
     }
 }
