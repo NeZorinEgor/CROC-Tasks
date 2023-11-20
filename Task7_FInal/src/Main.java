@@ -38,7 +38,7 @@ public class Main {
             switch (rootChilds.item(i).getNodeName()){
                 case "sales":{
                     salesNode = rootChilds.item(i);
-                    System.out.println(salesNode.getTextContent());
+                    //System.out.println(salesNode.getTextContent());
                     break;
                 }
             }
@@ -96,12 +96,19 @@ public class Main {
             Sales sales = new Sales(saleID, sellerID, productID, quantity, saleDate);
             salesList.add(sales);
         }
-        System.out.println(salesList);
+        root.setSales(salesList);
+        System.out.println(root.toString());
+
+        root.getSales().stream().filter((sales -> {
+            return sales.getQuantity() == 10;
+        })).forEach(sales -> {
+            System.out.println(sales.toString());
+        });
+
     }
     public static Document buildDocument() throws Exception{
         File file = new File("src/Data/Input/sales.xml");
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         return   dbf.newDocumentBuilder().parse(file);
-
     }
 }
