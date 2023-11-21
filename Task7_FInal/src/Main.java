@@ -9,7 +9,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-import static writeXml.XmlWriter.writeTopQuantity;
+import static XmlWriter.XmlWriter.writeTopDate;
+import static XmlWriter.XmlWriter.writeTopQuantity;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
@@ -22,6 +23,7 @@ public class Main {
         }
 
         //Достаем рутовый элемент
+
         Node rootNode = doc.getFirstChild();
 
         NodeList rootChilds = rootNode.getChildNodes();
@@ -33,11 +35,8 @@ public class Main {
                 continue; //Пропускаем всякий мусор, по типу #text
             }
 
-            switch (rootChilds.item(i).getNodeName()){
-                case "sales":{
-                    salesNode = rootChilds.item(i);
-                    break;
-                }
+            if (rootChilds.item(i).getNodeName().equals("sales")) {
+                salesNode = rootChilds.item(i);
             }
         }
         if (salesNode == null){
@@ -70,19 +69,19 @@ public class Main {
                 }
                 switch (saleChilds.item(j).getNodeName()){
                     case "saleID":{
-                        saleID = Integer.valueOf(saleChilds.item(j).getTextContent());
+                        saleID = Integer.parseInt(saleChilds.item(j).getTextContent());
                         break;
                     }
                     case "sellerID":{
-                        sellerID = Integer.valueOf(saleChilds.item(j).getTextContent());
+                        sellerID = Integer.parseInt(saleChilds.item(j).getTextContent());
                         break;
                     }
                     case "productID":{
-                        productID = Integer.valueOf(saleChilds.item(j).getTextContent());
+                        productID = Integer.parseInt(saleChilds.item(j).getTextContent());
                         break;
                     }
                     case "quantity":{
-                        quantity = Integer.valueOf(saleChilds.item(j).getTextContent());
+                        quantity = Integer.parseInt(saleChilds.item(j).getTextContent());
                         break;
                     }
                     case "saleDate":{
@@ -97,13 +96,8 @@ public class Main {
         //Добавляем в рут распаршенный лист
         root.setSales(salesList);
 
-
-//        root.getSales().stream()
-//                .sorted(Comparator.comparingInt(Sales::getQuantity)
-//                        .reversed()).limit(5)
-//                .forEach(sales -> System.out.println(sales.toString()));
-
         writeTopQuantity(root);
+        writeTopDate(root);
 
     }
     public static Document buildDocument() throws Exception{
