@@ -37,9 +37,32 @@
             <saleID>5</saleID>
             <sellerID>2</sellerID>
             <productID>2</productID>
-            <quantity>5</quantity>
+            <quantity>6</quantity>
             <saleDate>2023-11-21</saleDate>
         </sale>
 
+        <sale>
+            <saleID>6</saleID>
+            <sellerID>2</sellerID>
+            <productID>2</productID>
+            <quantity>7</quantity>
+            <saleDate>2023-11-21</saleDate>
+        </sale>
+
+        <sale>
+            <saleID>7</saleID>
+            <sellerID>2</sellerID>
+            <productID>2</productID>
+            <quantity>8</quantity>
+            <saleDate>2023-11-21</saleDate>
+        </sale>
+
+        <sale>
+            <saleID>8</saleID>
+            <sellerID>2</sellerID>
+            <productID>2</productID>
+            <quantity>9</quantity>
+            <saleDate>2023-11-21</saleDate>
+        </sale>
     </sales>
 </root><!-- Файл с продажами -->

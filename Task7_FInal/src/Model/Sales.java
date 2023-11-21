@@ -1,7 +1,5 @@
 package Model;
 
-import java.time.LocalDate;
-
 /**
  *             <saleID>1</saleID>
  *             <sellerID>1</sellerID>

@@ -6,70 +6,68 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.FileNotFoundException;
+import java.util.*;
+
+import static writeXml.XmlWriter.writeTopQuantity;
 
 public class Main {
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws FileNotFoundException {
         Root root = new Root();
-
         Document doc;
         try {
             doc =  buildDocument();
         } catch (Exception e) {
-            System.out.println("Open parsing error: " + e);
-            return; //На случай ошибки
+            return;
         }
 
         //Достаем рутовый элемент
         Node rootNode = doc.getFirstChild();
-        System.out.println(rootNode.getNodeName()); //root
 
         NodeList rootChilds = rootNode.getChildNodes();
 
+        //Перебераем sales
         Node salesNode = null;
         for (int i = 0; i < rootChilds.getLength(); i++){
             if (rootChilds.item(i).getNodeType() != Node.ELEMENT_NODE){
                 continue; //Пропускаем всякий мусор, по типу #text
             }
-            System.out.println(rootChilds.item(i).getNodeName());
 
             switch (rootChilds.item(i).getNodeName()){
                 case "sales":{
                     salesNode = rootChilds.item(i);
-                    //System.out.println(salesNode.getTextContent());
                     break;
                 }
             }
         }
-        if (salesNode == null){ //Можем не продолжать
+        if (salesNode == null){
             return;
         }
         List<Sales> salesList = new ArrayList<>();
         NodeList salesChilds = salesNode.getChildNodes();
         for (int i = 0; i < salesChilds.getLength(); i++) {
-            //чистим барахло
+            //убираем мусор
             if (salesChilds.item(i).getNodeType() != Node.ELEMENT_NODE) {
                 continue;
             }
-            //чистим барахло
+            //убираем мусор
             if (!salesChilds.item(i).getNodeName().equals("sale")){
                 continue;
             }
 
+            //Инициализируем поля для заполнения
             int saleID = 0;
             int sellerID = 0;
             int productID = 0;
             int quantity = 0;
             String saleDate = "";
 
+            //Перебераем последний слой sale
             NodeList saleChilds = salesChilds.item(i).getChildNodes();
             for (int j = 0; j < saleChilds.getLength(); j++){
                 if (saleChilds.item(j).getNodeType() != Node.ELEMENT_NODE) {
                     continue;
                 }
-
                 switch (saleChilds.item(j).getNodeName()){
                     case "saleID":{
                         saleID = Integer.valueOf(saleChilds.item(j).getTextContent());
@@ -96,14 +94,16 @@ public class Main {
             Sales sales = new Sales(saleID, sellerID, productID, quantity, saleDate);
             salesList.add(sales);
         }
+        //Добавляем в рут распаршенный лист
         root.setSales(salesList);
-        System.out.println(root.toString());
 
-        root.getSales().stream().filter((sales -> {
-            return sales.getQuantity() == 10;
-        })).forEach(sales -> {
-            System.out.println(sales.toString());
-        });
+
+//        root.getSales().stream()
+//                .sorted(Comparator.comparingInt(Sales::getQuantity)
+//                        .reversed()).limit(5)
+//                .forEach(sales -> System.out.println(sales.toString()));
+
+        writeTopQuantity(root);
 
     }
     public static Document buildDocument() throws Exception{
@@ -111,4 +111,6 @@ public class Main {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         return   dbf.newDocumentBuilder().parse(file);
     }
+
+
 }
