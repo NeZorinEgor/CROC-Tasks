@@ -2,6 +2,8 @@ package org.neZorinEgor;
 
 import org.neZorinEgor.Model.Root;
 
+import java.util.Locale;
+
 import static org.neZorinEgor.XmlParser.ProductParser.parseProducts;
 import static org.neZorinEgor.XmlParser.SalesParser.parseSales;
 import static org.neZorinEgor.XmlToJsonWriter.XmlToJsonWriter.writeTopDate;
