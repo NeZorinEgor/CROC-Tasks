@@ -16,14 +16,16 @@ import static org.neZorinEgor.XmlParser.DocumentBuilder.DocumentBuilder.buildDoc
  * Класс, содержащий метод для пасинга xml файла связанного с продуктами
  */
 public class ProductParser {
+    private static final String PRODUCT_ID = "productID";
+    private static final String PRODUCT_NAME = "productName";
+
     /**
      * Метод сортирует xml файл с продуктами
-     * @param root - сборщик элементов моделей продаж и товаров
      */
-    public static void parseProducts(Root root){
+    public static void parseProducts(Root root) {
         Document doc;
         try {
-            doc =  buildDocument(new File("src/main/java/org/neZorinEgor/Data/Input/products.xml"));
+            doc = buildDocument(new File("src/main/java/org/neZorinEgor/Data/Input/products.xml"));
         } catch (Exception e) {
             return;
         }
@@ -31,20 +33,26 @@ public class ProductParser {
         Node rootNode = doc.getFirstChild();
         NodeList rootChilds = rootNode.getChildNodes();
 
-        //Перебераем product
+        //Перебираем product
         Node productNode = null;
-        for (int i = 0; i < rootChilds.getLength(); i++){
-            if (rootChilds.item(i).getNodeType() != Node.ELEMENT_NODE){
+        for (int i = 0; i < rootChilds.getLength(); i++) {
+            if (rootChilds.item(i).getNodeType() != Node.ELEMENT_NODE) {
                 continue; //Пропускаем всякий мусор, по типу #text
             }
             if (rootChilds.item(i).getNodeName().equals("products")) {
                 productNode = rootChilds.item(i);
-                productNode = rootChilds.item(i);
             }
         }
-        if (productNode == null){
+        if (productNode == null) {
             return;
         }
+        List<Product> productList = parseProductList(productNode);
+
+        //Добавляем в рут распаршенный лист
+        root.setProducts(productList);
+    }
+
+    private static List<Product> parseProductList(Node productNode) {
         List<Product> productList = new ArrayList<>();
         NodeList productsChilds = productNode.getChildNodes();
         for (int i = 0; i < productsChilds.getLength(); i++) {
@@ -53,7 +61,7 @@ public class ProductParser {
                 continue;
             }
             //убираем мусор
-            if (!productsChilds.item(i).getNodeName().equals("product")){
+            if (!productsChilds.item(i).getNodeName().equals("product")) {
                 continue;
             }
 
@@ -61,18 +69,18 @@ public class ProductParser {
             int productID = 0;
             String productName = "";
 
-            //Перебераем последний слой product
+            //Перебираем последний слой product
             NodeList productChilds = productsChilds.item(i).getChildNodes();
-            for (int j = 0; j < productChilds.getLength(); j++){
+            for (int j = 0; j < productChilds.getLength(); j++) {
                 if (productChilds.item(j).getNodeType() != Node.ELEMENT_NODE) {
                     continue;
                 }
-                switch (productChilds.item(j).getNodeName()){
-                    case "productID":{
+                switch (productChilds.item(j).getNodeName()) {
+                    case PRODUCT_ID: {
                         productID = Integer.parseInt(productChilds.item(j).getTextContent());
                         break;
                     }
-                    case "productName":{
+                    case PRODUCT_NAME: {
                         productName = productChilds.item(j).getTextContent();
                         break;
                     }
@@ -81,8 +89,6 @@ public class ProductParser {
             Product product = new Product(productID, productName);
             productList.add(product);
         }
-        //Добавляем в рут распаршенный лист
-        root.setProducts(productList);
-
+        return productList;
     }
 }
