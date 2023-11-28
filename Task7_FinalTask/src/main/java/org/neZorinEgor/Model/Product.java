@@ -1,8 +1,8 @@
 package org.neZorinEgor.Model;
 
 public class Product {
-    private int productID;
-    private String productName;
+    private final int productID;
+    private final String productName;
 
     public Product(int productID, String productName){
         this.productID = productID;

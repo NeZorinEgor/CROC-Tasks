@@ -8,11 +8,11 @@ package org.neZorinEgor.Model;
  *             <saleDate>2023-11-17</saleDate>
  */
 public class Sales {
-    private int saleID;
-    private int sellerID;
-    private int productID;
-    private int quantity;
-    private String saleDate;
+    private final int saleID;
+    private final int sellerID;
+    private final int productID;
+    private final int quantity;
+    private final String saleDate;
 
     public Sales(int saleID, int sellerID, int productID, int quantity, String saleDate) {
         this.saleID = saleID;
