@@ -68,7 +68,7 @@ git clone https://github.com/NeZorinEgor/CROC-Tasks.git
 cd CROC-Tasks/Task7_FinalTask
 ```
 
-## Сюорка и запуск приложения с помощью Apache Maven
+## Сборка и запуск приложения с помощью Apache Maven
 ```mvn
 mvn clean compile exec:java
 ```
