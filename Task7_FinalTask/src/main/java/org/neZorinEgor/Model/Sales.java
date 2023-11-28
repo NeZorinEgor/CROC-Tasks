@@ -1,4 +1,4 @@
-package Model;
+package org.neZorinEgor.Model;
 
 /**
  *             <saleID>1</saleID>
@@ -38,11 +38,16 @@ public class Sales {
         return saleDate;
     }
 
+    public int getProductID(){
+        return productID;
+    }
+
     @Override
     public String toString() {
         return "Sales{" +
                 "saleID=" + saleID +
                 ", sellerID=" + sellerID +
+                ", productID=" + productID +
                 ", quantity=" + quantity +
                 ", saleDate='" + saleDate + '\'' +
                 '}';

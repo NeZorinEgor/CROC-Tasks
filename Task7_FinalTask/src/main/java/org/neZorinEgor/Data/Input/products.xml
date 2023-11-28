@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <products>
+        <product>
+            <productID>1</productID>
+            <productName>Товар 1</productName>
+        </product>
+        <product>
+            <productID>2</productID>
+            <productName>Товар 2</productName>
+        </product>
+        <product>
+            <productID>3</productID>
+            <productName>Товар 3</productName>
+        </product>
+        <product>
+            <productID>4</productID>
+            <productName>Товар 4</productName>
+        </product>
+        <product>
+            <productID>5</productID>
+            <productName>Товар 5</productName>
+        </product>
+    </products>
+</root><!-- Файл с товарами -->

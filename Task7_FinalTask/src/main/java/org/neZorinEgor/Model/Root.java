@@ -1,9 +1,10 @@
-package Model;
+package org.neZorinEgor.Model;
 
 import java.util.List;
 
-public class Root{
+public class Root {
     private List<Sales> sales;
+    private List<Product> products;
 
     public List<Sales> getSales() {
         return sales;
@@ -13,10 +14,19 @@ public class Root{
         this.sales = sales;
     }
 
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
     @Override
     public String toString() {
         return "Root{" +
                 "sales=" + sales +
+                ", products=" + products +
                 '}';
     }
 }

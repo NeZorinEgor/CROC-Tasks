@@ -44,7 +44,7 @@
         <sale>
             <saleID>6</saleID>
             <sellerID>2</sellerID>
-            <productID>2</productID>
+            <productID>3</productID>
             <quantity>7</quantity>
             <saleDate>2023-11-21</saleDate>
         </sale>
@@ -52,7 +52,7 @@
         <sale>
             <saleID>7</saleID>
             <sellerID>2</sellerID>
-            <productID>2</productID>
+            <productID>4</productID>
             <quantity>8</quantity>
             <saleDate>2023-11-21</saleDate>
         </sale>
@@ -60,7 +60,7 @@
         <sale>
             <saleID>8</saleID>
             <sellerID>2</sellerID>
-            <productID>2</productID>
+            <productID>5</productID>
             <quantity>9</quantity>
             <saleDate>2023-11-21</saleDate>
         </sale>
