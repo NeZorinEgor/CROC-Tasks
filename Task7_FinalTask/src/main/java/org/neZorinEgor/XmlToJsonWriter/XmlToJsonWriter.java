@@ -32,8 +32,8 @@ public class XmlToJsonWriter {
 
                 ObjectMapper objectMapper = new ObjectMapper();
                 objectMapper.writeValue(new File(outputFilePath), topSales);
-
-                System.out.println("   └──Output file: " + outputFilePath);
+                System.out.println("\t└──Output file: " + outputFilePath);
+                System.out.println("\t\t└──" + objectMapper.writeValueAsString(topSales));
             } catch (IOException e) {
                 e.printStackTrace();
             }
