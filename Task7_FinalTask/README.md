@@ -56,3 +56,20 @@ src/main/java/org/neZorinEgor/Data/Input
 ```xpath
 src/main/java/org/neZorinEgor/Data/Input
 ```
+
+## Запуск проекта:
+Склонируйте репозиторий с кодом:
+```bash
+git clone https://github.com/NeZorinEgor/CROC-Tasks.git
+```
+
+## Перейдите в директорию с кодом:
+```bash
+cd CROC-Tasks/Task7_FinalTask
+```
+
+## Сюорка и запуск приложения с помощью Apache Maven
+```mvn
+mvn clean compile exec:java
+```
+
