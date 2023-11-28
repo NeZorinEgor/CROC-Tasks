@@ -14,7 +14,7 @@ public class DocumentBuilder {
         try {
             return   dbf.newDocumentBuilder().parse(file);
         } catch (SAXException | ParserConfigurationException | IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("!!! Build Doc error:" + e.getMessage());
         }
     }
 }

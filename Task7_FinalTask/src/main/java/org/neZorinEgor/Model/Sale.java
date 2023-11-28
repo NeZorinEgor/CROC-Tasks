@@ -1,20 +1,16 @@
 package org.neZorinEgor.Model;
 
 /**
- *             <saleID>1</saleID>
- *             <sellerID>1</sellerID>
- *             <productID>1</productID>
- *             <quantity>10</quantity>
- *             <saleDate>2023-11-17</saleDate>
+ *   Модель продажи из файла sales.xml
  */
-public class Sales {
+public class Sale {
     private final int saleID;
     private final int sellerID;
     private final int productID;
     private final int quantity;
     private final String saleDate;
 
-    public Sales(int saleID, int sellerID, int productID, int quantity, String saleDate) {
+    public Sale(int saleID, int sellerID, int productID, int quantity, String saleDate) {
         this.saleID = saleID;
         this.sellerID = sellerID;
         this.productID = productID;

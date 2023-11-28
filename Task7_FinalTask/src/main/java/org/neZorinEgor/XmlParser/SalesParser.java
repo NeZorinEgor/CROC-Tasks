@@ -1,7 +1,7 @@
 package org.neZorinEgor.XmlParser;
 
 import org.neZorinEgor.Model.Root;
-import org.neZorinEgor.Model.Sales;
+import org.neZorinEgor.Model.Sale;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -12,7 +12,14 @@ import java.util.List;
 
 import static org.neZorinEgor.XmlParser.DocumentBuilder.DocumentBuilder.buildDocument;
 
+/**
+ * Класс, содержащий метод для пасинга xml файла связанного с продажами
+ */
 public class SalesParser {
+    /**
+     * Метод сортирует xml файл с продажами
+     * @param root - сборщик элементов моделей продаж и товаров
+     */
     public static void parseSales(Root root){
         Document doc;
         try {
@@ -38,7 +45,7 @@ public class SalesParser {
         if (salesNode == null){
             return;
         }
-        List<Sales> salesList = new ArrayList<>();
+        List<Sale> salesList = new ArrayList<>();
         NodeList salesChilds = salesNode.getChildNodes();
         for (int i = 0; i < salesChilds.getLength(); i++) {
             //убираем мусор
@@ -86,7 +93,7 @@ public class SalesParser {
                     }
                 }
             }
-            Sales sales = new Sales(saleID, sellerID, productID, quantity, saleDate);
+            Sale sales = new Sale(saleID, sellerID, productID, quantity, saleDate);
             salesList.add(sales);
         }
         //Добавляем в рут распаршенный лист

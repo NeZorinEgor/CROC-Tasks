@@ -12,7 +12,14 @@ import java.util.List;
 
 import static org.neZorinEgor.XmlParser.DocumentBuilder.DocumentBuilder.buildDocument;
 
+/**
+ * Класс, содержащий метод для пасинга xml файла связанного с продуктами
+ */
 public class ProductParser {
+    /**
+     * Метод сортирует xml файл с продуктами
+     * @param root - сборщик элементов моделей продаж и товаров
+     */
     public static void parseProducts(Root root){
         Document doc;
         try {
@@ -31,6 +38,7 @@ public class ProductParser {
                 continue; //Пропускаем всякий мусор, по типу #text
             }
             if (rootChilds.item(i).getNodeName().equals("products")) {
+                productNode = rootChilds.item(i);
                 productNode = rootChilds.item(i);
             }
         }

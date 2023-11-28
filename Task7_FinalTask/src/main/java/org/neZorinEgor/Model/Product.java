@@ -1,5 +1,7 @@
 package org.neZorinEgor.Model;
-
+/**
+ *   Модель продажи из файла products.xml
+ */
 public class Product {
     private final int productID;
     private final String productName;
